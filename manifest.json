@@ -1,6 +1,6 @@
 {
   "lang": "en",
-  "short_name": "serviceworker",
+  "short_name": "sw",
   "name": "Service Worker",
   "description": "Learning about service workers! 🤓",
   "start_url": "./",
