@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-title" content="serviceworker">
+  <meta name="theme-color" content="#27ae60">
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="shortcut icon" href="./icon.png">
+
+  <title>Service Workers – Offline Page</title>
+
+  <style>
+    *, *:after, *:before {
+      box-sizing: border-box; }
+
+    ::selection {
+      background-color: #fff;
+      color: #27ae60; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      margin: 0;
+      padding: 0 1.5rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #27ae60; }
+
+    section {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 60rem;
+      width: 100%: }
+
+    h1 {
+      font-size: 2.37037rem;
+      line-height: 1.26562;
+      font-weight: 600;
+      color: #fff; }
+
+    p {
+      font-size: 1.77778rem;
+      line-height: 1.6875;
+      font-weight: 300;
+      color: #72da9e; }
+
+      @media screen and (max-width: 48rem) {
+        p { font-size: 1.3333rem; } }
+
+    a {
+      color: #fff;
+      text-decoration: none; }
+
+      a:hover { text-decoration: underline; }
+      a:visited { color: #437959; }
+  </style>
+</head>
+<body>
+
+  <section>
+    <h1>Service Workers – Offline Page</h1>
+    <p><em>Service workers essentially act as proxy servers that sit between web applications, and the browser and network (when available). They are intended to (amongst other things) enable the creation of effective offline experiences, intercepting network requests and taking appropriate action based on whether the network is available and updated assets reside on the server. They will also allow access to push notifications and background sync APIs.</em></p>
+    <p><em>— Read more: <a href="https://developer.mozilla.org/en/docs/Web/API/Service_Worker_API" target="_blank" rel="noopener">Service Worker API | MDN</a></em></p>
+  </section>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').then(function(reg) {
+        if (reg.active) {
+          console.log('Service Worker active');
+        } else {
+          console.log('Service Worker registered');
+        }
+      }).catch(function(error) {
+        console.log('Registration failed with ' + error);
+      });
+    }
+  </script>
+</body>
+</html>
